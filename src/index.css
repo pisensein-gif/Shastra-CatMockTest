@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ======================================================== */
+/* TCS iON QUESTION PALETTE ICONIC SHAPES */
+/* ======================================================== */
+
+/* 1. Answered: Green Polygon with Pointed Top */
+.cat-shape-answered {
+  background-color: #28a745;
+  clip-path: polygon(50% 0%, 100% 28%, 100% 100%, 0% 100%, 0% 28%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+/* 2. Not Answered: Orange-Red Polygon with Pointed Bottom (Like Q1 in screenshots) */
+.cat-shape-not-answered {
+  background-color: #dc3545;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 72%, 50% 100%, 0% 72%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+/* Calculator Button Utilities */
+.cat-calc-btn {
+  padding: 6px 4px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  transition: background-color 0.1s, transform 0.05s;
+}
+
+.cat-calc-btn:hover {
+  filter: brightness(0.95);
+}
+
+.cat-calc-btn:active {
+  transform: translateY(1px);
+}
+
+.cat-calc-num {
+  padding: 8px 4px;
+  background-color: #ffffff;
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  color: #222;
+  font-size: 13px;
+  transition: background-color 0.1s, transform 0.05s;
+}
+
+.cat-calc-num:hover {
+  background-color: #f0f4f8;
+}
+
+.cat-calc-num:active {
+  transform: translateY(1px);
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ======================================================== */
+/* FUTURISTIC CYBER LOADING ANIMATIONS */
+/* ======================================================== */
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes cyberLaserScan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+}
+
+.anim-spin-slow {
+  animation: spinClockwise 12s linear infinite;
+}
+
+.anim-spin-reverse {
+  animation: spinCounterClockwise 8s linear infinite;
+}
+
+.anim-laser-scan {
+  animation: cyberLaserScan 2.2s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: floatGentle 3s ease-in-out infinite;
+}
+
+.anim-pulse-glow {
+  animation: pulseGlowRing 2.8s ease-in-out infinite;
+}
