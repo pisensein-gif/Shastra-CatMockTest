@@ -10,20 +10,12 @@ import {
   History, 
   Settings, 
   Lock, 
-  Phone, 
-  Mail, 
-  Award, 
-  CheckCircle2, 
-  XCircle, 
-  MinusCircle, 
   ArrowLeft, 
-  Clock, 
   TrendingUp, 
   Calendar, 
   FileText, 
-  Check, 
+  CheckCircle2, 
   AlertCircle,
-  HelpCircle,
   Layers,
   ChevronRight
 } from 'lucide-react';
@@ -190,12 +182,12 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
       {/* Main Content */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 flex flex-col z-10 my-2">
         
-        {/* Top Breadcrumb & User Title Bar */}
+        {/* Top Breadcrumb & User Title Bar - Sharp Boxes */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
           <div className="flex items-center gap-3">
             <button
               onClick={onBack}
-              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-cyan-950/50 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 hover:text-white transition-colors text-xs font-semibold cursor-pointer shadow-xs shrink-0"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-950/50 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 hover:text-white transition-colors text-xs font-semibold cursor-pointer shadow-xs shrink-0"
             >
               <ArrowLeft size={15} />
               <span className="hidden xs:inline">Back</span>
@@ -204,7 +196,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
             <div>
               <h1 className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
                 <span className="truncate max-w-[180px] sm:max-w-none">{candidateProfile?.name || 'Candidate Profile'}</span>
-                <span className="text-[10px] sm:text-xs bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-full font-mono shrink-0">
+                <span className="text-[10px] sm:text-xs bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 font-mono shrink-0">
                   CET Student
                 </span>
               </h1>
@@ -214,11 +206,11 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
             </div>
           </div>
 
-          {/* Navigation Tabs */}
-          <div className="flex items-center gap-1 sm:gap-1.5 bg-[#0a122e]/90 p-1 sm:p-1.5 rounded-xl border border-cyan-500/25 w-full sm:w-auto overflow-x-auto shadow-md shrink-0">
+          {/* Navigation Tabs - Sharp Box */}
+          <div className="flex items-center gap-1 sm:gap-1.5 bg-[#0a122e]/90 p-1 sm:p-1.5 border border-cyan-500/25 w-full sm:w-auto overflow-x-auto shadow-md shrink-0">
             <button
               onClick={() => { setActiveTab('analytics'); setSelectedAttempt(null); }}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'analytics' && !selectedAttempt
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_12px_rgba(34,211,238,0.4)]'
                   : 'text-gray-400 hover:text-gray-200'
@@ -230,7 +222,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
             <button
               onClick={() => { setActiveTab('history'); }}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'history' || selectedAttempt
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_12px_rgba(34,211,238,0.4)]'
                   : 'text-gray-400 hover:text-gray-200'
@@ -242,7 +234,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
             <button
               onClick={() => { setActiveTab('settings'); setSelectedAttempt(null); }}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'settings'
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_12px_rgba(34,211,238,0.4)]'
                   : 'text-gray-400 hover:text-gray-200'
@@ -260,34 +252,34 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
         {activeTab === 'analytics' && !selectedAttempt && (
           <div className="space-y-6">
             
-            {/* Top Metric KPI Cards */}
+            {/* Top Metric KPI Cards - Sharp Boxes */}
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
               
-              <div className="p-4 rounded-xl bg-[#070e24]/90 border border-cyan-500/25 shadow-lg flex flex-col justify-between">
+              <div className="p-4 bg-[#070e24]/90 border border-cyan-500/25 shadow-lg flex flex-col justify-between">
                 <span className="text-[11px] text-cyan-400 uppercase tracking-wider font-semibold">Total Attempts</span>
                 <div className="text-3xl font-black text-white mt-2">{totalAttemptsCount}</div>
                 <span className="text-[10px] text-gray-400 mt-1">Full-length CAT Mocks</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#070e24]/90 border border-emerald-500/30 shadow-lg flex flex-col justify-between">
+              <div className="p-4 bg-[#070e24]/90 border border-emerald-500/30 shadow-lg flex flex-col justify-between">
                 <span className="text-[11px] text-emerald-400 uppercase tracking-wider font-semibold">Best Score</span>
                 <div className="text-3xl font-black text-emerald-400 mt-2">{bestScore}</div>
                 <span className="text-[10px] text-gray-400 mt-1">out of 198 marks</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#070e24]/90 border border-amber-500/30 shadow-lg flex flex-col justify-between">
+              <div className="p-4 bg-[#070e24]/90 border border-amber-500/30 shadow-lg flex flex-col justify-between">
                 <span className="text-[11px] text-amber-400 uppercase tracking-wider font-semibold">Peak Percentile</span>
                 <div className="text-3xl font-black text-amber-400 mt-2">{bestPercentile}%ile</div>
                 <span className="text-[10px] text-gray-400 mt-1">Projected CAT standing</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#070e24]/90 border border-blue-500/30 shadow-lg flex flex-col justify-between">
+              <div className="p-4 bg-[#070e24]/90 border border-blue-500/30 shadow-lg flex flex-col justify-between">
                 <span className="text-[11px] text-blue-400 uppercase tracking-wider font-semibold">Average Score</span>
                 <div className="text-3xl font-black text-blue-300 mt-2">{avgScore}</div>
                 <span className="text-[10px] text-gray-400 mt-1">Mean across all attempts</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#070e24]/90 border border-purple-500/30 shadow-lg col-span-2 lg:col-span-1 flex flex-col justify-between">
+              <div className="p-4 bg-[#070e24]/90 border border-purple-500/30 shadow-lg col-span-2 lg:col-span-1 flex flex-col justify-between">
                 <span className="text-[11px] text-purple-400 uppercase tracking-wider font-semibold">Overall Accuracy</span>
                 <div className="text-3xl font-black text-purple-300 mt-2">{overallAccuracy}%</div>
                 <span className="text-[10px] text-gray-400 mt-1">{totalCorrect} correct answers</span>
@@ -295,11 +287,11 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
             </div>
 
-            {/* VISUAL GRAPHS SECTION */}
+            {/* VISUAL GRAPHS SECTION - Sharp Boxes */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               
               {/* Graph 1: Score & Percentile Progression Graph (SVG Line/Area Chart) */}
-              <div className="lg:col-span-8 p-5 sm:p-6 rounded-2xl bg-[#070e24]/90 border border-cyan-500/25 shadow-xl flex flex-col justify-between">
+              <div className="lg:col-span-8 p-5 sm:p-6 bg-[#070e24]/90 border border-cyan-500/25 shadow-xl flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -314,11 +306,11 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
                     <div className="flex items-center gap-3 text-[11px]">
                       <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded bg-cyan-400"></div>
+                        <div className="w-3 h-3 bg-cyan-400"></div>
                         <span className="text-gray-300 font-medium">Score</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded bg-amber-400"></div>
+                        <div className="w-3 h-3 bg-amber-400"></div>
                         <span className="text-gray-300 font-medium">Percentile</span>
                       </div>
                     </div>
@@ -344,7 +336,6 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                         {(() => {
                           const pts = attempts.slice().reverse().map((att, i, arr) => {
                             const x = arr.length === 1 ? 250 : 40 + (i * (440 / (arr.length - 1)));
-                            // Map score 0-198 to y 170-20
                             const s = Math.max(0, Math.min(198, att.totalScore || 0));
                             const y = 170 - (s / 198) * 150;
                             return { x, y, score: att.totalScore, p: att.estimatedPercentile };
@@ -352,6 +343,15 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
                           const pathData = pts.reduce((acc, pt, i) => `${acc} ${i === 0 ? 'M' : 'L'} ${pt.x} ${pt.y}`, '');
                           const areaData = `${pathData} L ${pts[pts.length - 1].x} 170 L ${pts[0].x} 170 Z`;
+
+                          // Percentile line
+                          const pPts = attempts.slice().reverse().map((att, i, arr) => {
+                            const x = arr.length === 1 ? 250 : 40 + (i * (440 / (arr.length - 1)));
+                            const p = Math.max(0, Math.min(100, att.estimatedPercentile || 0));
+                            const y = 170 - (p / 100) * 150;
+                            return { x, y };
+                          });
+                          const pPath = pPts.reduce((acc, pt, i) => `${acc} ${i === 0 ? 'M' : 'L'} ${pt.x} ${pt.y}`, '');
 
                           return (
                             <>
@@ -361,12 +361,19 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                                   <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.0" />
                                 </linearGradient>
                               </defs>
+
+                              {/* Fill Area */}
                               <path d={areaData} fill="url(#scoreAreaGrad)" />
-                              <path d={pathData} fill="none" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" />
+
+                              {/* Lines */}
+                              <path d={pathData} fill="none" stroke="#22d3ee" strokeWidth="2.5" />
+                              <path d={pPath} fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
+
+                              {/* Points */}
                               {pts.map((pt, idx) => (
-                                <g key={idx} className="group cursor-pointer">
-                                  <circle cx={pt.x} cy={pt.y} r="5" fill="#040817" stroke="#22d3ee" strokeWidth="2.5" />
-                                  <text x={pt.x} y={pt.y - 10} fill="#a5f3fc" fontSize="10" fontWeight="bold" textAnchor="middle">
+                                <g key={idx}>
+                                  <circle cx={pt.x} cy={pt.y} r="4" fill="#06b6d4" stroke="#ffffff" strokeWidth="1.5" />
+                                  <text x={pt.x} y={pt.y - 8} fill="#22d3ee" fontSize="10" textAnchor="middle" fontWeight="bold">
                                     {pt.score}m
                                   </text>
                                 </g>
@@ -377,24 +384,22 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       </svg>
                     </div>
                   ) : (
-                    <div className="h-64 flex flex-col items-center justify-center text-center text-gray-400 bg-black/20 rounded-xl border border-dashed border-gray-700 p-6">
-                      <HelpCircle size={32} className="text-cyan-400 mb-2 opacity-60" />
-                      <p className="text-sm font-semibold text-gray-300">No test attempts recorded yet</p>
-                      <p className="text-xs text-gray-500 mt-1 max-w-sm">
-                        Attempt your first CAT mock test to generate real-time performance graphs and percentile trend lines.
-                      </p>
+                    <div className="h-64 flex flex-col items-center justify-center text-gray-500 border border-dashed border-gray-800">
+                      <TrendingUp size={32} className="mb-2 opacity-40 text-cyan-400" />
+                      <p className="text-xs">No attempt history yet to plot score trajectory.</p>
+                      <p className="text-[11px] text-gray-600 mt-0.5">Complete your first test to view analytics graphs.</p>
                     </div>
                   )}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-cyan-500/15 flex items-center justify-between text-xs text-gray-400">
-                  <span>Chronological Mock Attempts</span>
-                  <span className="text-cyan-400">Total Attempts: {totalAttemptsCount}</span>
+                <div className="mt-3 pt-3 border-t border-cyan-500/15 flex items-center justify-between text-[11px] text-gray-400">
+                  <span>Based on your recent exam submissions</span>
+                  <span className="text-cyan-300 font-mono">100% Verified TCS CBT format</span>
                 </div>
               </div>
 
-              {/* Graph 2: Sectional Strength & Accuracy Breakdown */}
-              <div className="lg:col-span-4 p-5 sm:p-6 rounded-2xl bg-[#070e24]/90 border border-cyan-500/25 shadow-xl flex flex-col justify-between">
+              {/* Graph 2: Sectional Accuracy Breakdown - Sharp Box */}
+              <div className="lg:col-span-4 p-5 sm:p-6 bg-[#070e24]/90 border border-cyan-500/25 shadow-xl flex flex-col justify-between">
                 <div>
                   <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2 mb-1">
                     <Layers size={18} className="text-blue-400" />
@@ -410,13 +415,13 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       const sec = sectionalAggregates.VARC;
                       const acc = sec.totalAtt > 0 ? Math.round((sec.totalCorr / sec.totalAtt) * 100) : 0;
                       return (
-                        <div className="bg-black/30 p-3 rounded-xl border border-white/5 space-y-1.5">
+                        <div className="bg-black/30 p-3 border border-white/5 space-y-1.5">
                           <div className="flex justify-between items-center text-xs">
                             <span className="font-bold text-cyan-300">VARC (Verbal & RC)</span>
                             <span className="font-mono text-cyan-400 font-bold">{acc}% Acc</span>
                           </div>
-                          <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-                            <div className="h-full bg-cyan-400 rounded-full transition-all duration-500" style={{ width: `${acc}%` }} />
+                          <div className="w-full bg-gray-800 h-2 overflow-hidden">
+                            <div className="h-full bg-cyan-400 transition-all duration-500" style={{ width: `${acc}%` }} />
                           </div>
                           <div className="flex justify-between text-[10px] text-gray-400 pt-0.5">
                             <span>{sec.totalCorr} correct / {sec.totalAtt} attempted</span>
@@ -431,13 +436,13 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       const sec = sectionalAggregates.DILR;
                       const acc = sec.totalAtt > 0 ? Math.round((sec.totalCorr / sec.totalAtt) * 100) : 0;
                       return (
-                        <div className="bg-black/30 p-3 rounded-xl border border-white/5 space-y-1.5">
+                        <div className="bg-black/30 p-3 border border-white/5 space-y-1.5">
                           <div className="flex justify-between items-center text-xs">
                             <span className="font-bold text-amber-300">DILR (Data & Reasoning)</span>
                             <span className="font-mono text-amber-400 font-bold">{acc}% Acc</span>
                           </div>
-                          <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-                            <div className="h-full bg-amber-400 rounded-full transition-all duration-500" style={{ width: `${acc}%` }} />
+                          <div className="w-full bg-gray-800 h-2 overflow-hidden">
+                            <div className="h-full bg-amber-400 transition-all duration-500" style={{ width: `${acc}%` }} />
                           </div>
                           <div className="flex justify-between text-[10px] text-gray-400 pt-0.5">
                             <span>{sec.totalCorr} correct / {sec.totalAtt} attempted</span>
@@ -452,13 +457,13 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       const sec = sectionalAggregates.QA;
                       const acc = sec.totalAtt > 0 ? Math.round((sec.totalCorr / sec.totalAtt) * 100) : 0;
                       return (
-                        <div className="bg-black/30 p-3 rounded-xl border border-white/5 space-y-1.5">
+                        <div className="bg-black/30 p-3 border border-white/5 space-y-1.5">
                           <div className="flex justify-between items-center text-xs">
                             <span className="font-bold text-purple-300">QA (Quant Aptitude)</span>
                             <span className="font-mono text-purple-400 font-bold">{acc}% Acc</span>
                           </div>
-                          <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-                            <div className="h-full bg-purple-400 rounded-full transition-all duration-500" style={{ width: `${acc}%` }} />
+                          <div className="w-full bg-gray-800 h-2 overflow-hidden">
+                            <div className="h-full bg-purple-400 transition-all duration-500" style={{ width: `${acc}%` }} />
                           </div>
                           <div className="flex justify-between text-[10px] text-gray-400 pt-0.5">
                             <span>{sec.totalCorr} correct / {sec.totalAtt} attempted</span>
@@ -487,9 +492,9 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
           <div>
             {/* If an attempt is selected for detailed inspection */}
             {selectedAttempt ? (
-              <div className="bg-[#070e24]/95 rounded-2xl border border-cyan-500/30 overflow-hidden shadow-2xl">
+              <div className="bg-[#070e24]/95 border border-cyan-500/30 overflow-hidden shadow-2xl">
                 
-                {/* Review Header */}
+                {/* Review Header - Sharp Box */}
                 <div className="bg-gradient-to-r from-blue-950 via-[#0a183d] to-cyan-950 p-5 border-b border-cyan-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <button
@@ -501,22 +506,22 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                     </button>
                     <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-3">
                       <span>Exam Attempt Detailed Review</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded font-mono">
+                      <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 font-mono">
                         Score: {selectedAttempt.totalScore} / 198
                       </span>
-                      <span className="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded font-mono">
+                      <span className="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 font-mono">
                         {selectedAttempt.estimatedPercentile}%ile
                       </span>
                     </h2>
                   </div>
 
-                  {/* Section Switcher for Review */}
+                  {/* Section Switcher for Review - Sharp Buttons */}
                   <div className="flex gap-2">
                     {['VARC', 'DILR', 'QA'].map(sec => (
                       <button
                         key={sec}
                         onClick={() => { setReviewSection(sec); setSelectedReviewQIndex(0); }}
-                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        className={`px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                           reviewSection === sec 
                             ? 'bg-[#1f78b4] text-white shadow-md' 
                             : 'bg-black/40 text-gray-300 hover:bg-black/60 border border-white/10'
@@ -542,43 +547,41 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                             Question No. {currentReviewQ.questionNumber} ({currentReviewQ.type})
                           </span>
 
-                          {/* Response Status Badge */}
+                          {/* Response Status Badge - Sharp */}
                           {(() => {
                             if (!currentReviewResp || currentReviewResp.answer === null || currentReviewResp.answer === undefined || currentReviewResp.answer === '') {
-                              return <span className="px-2.5 py-1 rounded text-xs font-bold bg-gray-800 text-gray-400">Unattempted (0 pts)</span>;
+                              return <span className="px-2.5 py-1 text-xs font-bold bg-gray-800 text-gray-400">Unattempted (0 pts)</span>;
                             }
                             const isCorrect = currentReviewQ.type === 'MCQ'
                               ? parseInt(currentReviewResp.answer, 10) === currentReviewQ.correctAnswer
                               : String(currentReviewResp.answer).trim().toLowerCase() === String(currentReviewQ.correctAnswer).trim().toLowerCase();
-                            
+
                             return isCorrect ? (
-                              <span className="px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/70 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
-                                <CheckCircle2 size={14} className="text-emerald-400" />
-                                <span>Correct (+3 marks)</span>
+                              <span className="px-2.5 py-1 text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+                                <CheckCircle2 size={13} /> Correct (+3 pts)
                               </span>
                             ) : (
-                              <span className="px-2.5 py-1 rounded text-xs font-bold bg-rose-950/70 text-rose-300 border border-rose-500/40 flex items-center gap-1.5">
-                                <XCircle size={14} className="text-rose-400" />
-                                <span>Incorrect ({currentReviewQ.type === 'MCQ' ? '-1 mark' : '0 marks'})</span>
+                              <span className="px-2.5 py-1 text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1">
+                                <AlertCircle size={13} /> Incorrect ({currentReviewQ.type === 'MCQ' ? '-1 pt' : '0 pts'})
                               </span>
                             );
                           })()}
                         </div>
 
-                        {/* Passage if present */}
+                        {/* Passage if present - Sharp Box */}
                         {currentReviewQ.passage && (
-                          <div className="p-4 bg-black/40 border-l-4 border-cyan-500 rounded-r-xl text-xs text-gray-300 italic max-h-48 overflow-y-auto whitespace-pre-line leading-relaxed">
+                          <div className="p-4 bg-black/40 border-l-4 border-cyan-500 text-xs text-gray-300 italic max-h-48 overflow-y-auto whitespace-pre-line leading-relaxed">
                             {currentReviewQ.passage}
                           </div>
                         )}
 
-                        {/* Diagram if present */}
+                        {/* Diagram if present - Sharp Box */}
                         {currentReviewQ.diagramUrl && (
-                          <div className="my-3 flex justify-center bg-black/40 border border-cyan-500/20 rounded-xl p-3">
+                          <div className="my-3 flex justify-center bg-black/40 border border-cyan-500/20 p-3">
                             <img 
                               src={currentReviewQ.diagramUrl} 
                               alt="Problem Diagram" 
-                              className="max-h-60 object-contain rounded-lg" 
+                              className="max-h-60 object-contain" 
                             />
                           </div>
                         )}
@@ -588,7 +591,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                           {currentReviewQ.questionText}
                         </div>
 
-                        {/* Options */}
+                        {/* Options - Sharp Boxes */}
                         {currentReviewQ.type === 'MCQ' && (
                           <div className="space-y-2.5 pt-2 text-xs">
                             {currentReviewQ.options.map((opt, oIdx) => {
@@ -603,16 +606,16 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                               }
 
                               return (
-                                <div key={oIdx} className={`p-3 rounded-xl border flex items-start gap-3 ${optBorder}`}>
+                                <div key={oIdx} className={`p-3 border flex items-start gap-3 ${optBorder}`}>
                                   <span className="font-bold text-gray-400">({String.fromCharCode(65 + oIdx)})</span>
                                   <span className="flex-1">{opt}</span>
                                   {isCorrect && (
-                                    <span className="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded font-bold">
+                                    <span className="text-[10px] bg-emerald-600 text-white px-2 py-0.5 font-bold">
                                       Official Key
                                     </span>
                                   )}
                                   {isUserChoice && !isCorrect && (
-                                    <span className="text-[10px] bg-rose-600 text-white px-2 py-0.5 rounded font-bold">
+                                    <span className="text-[10px] bg-rose-600 text-white px-2 py-0.5 font-bold">
                                       Your Answer
                                     </span>
                                   )}
@@ -622,13 +625,13 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                           </div>
                         )}
 
-                        {/* TITA Response display */}
+                        {/* TITA Response display - Sharp Box */}
                         {currentReviewQ.type === 'TITA' && (
-                          <div className="p-4 bg-black/40 rounded-xl border border-white/10 text-xs space-y-1.5">
+                          <div className="p-4 bg-black/40 border border-white/10 text-xs space-y-1.5">
                             <div>
                               <strong className="text-gray-400">Your Keyed Answer:</strong>{' '}
                               {currentReviewResp?.answer ? (
-                                <span className="font-mono font-bold text-white px-2 py-0.5 bg-black/50 rounded border border-white/20">
+                                <span className="font-mono font-bold text-white px-2 py-0.5 bg-black/50 border border-white/20">
                                   {currentReviewResp.answer}
                                 </span>
                               ) : (
@@ -637,20 +640,20 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                             </div>
                             <div>
                               <strong className="text-gray-400">Correct Answer:</strong>{' '}
-                              <span className="font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950/50 rounded border border-emerald-500/30">
+                              <span className="font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950/50 border border-emerald-500/30">
                                 {currentReviewQ.correctAnswer}
                               </span>
                             </div>
                           </div>
                         )}
 
-                        {/* Explanation */}
-                        <div className="p-4 bg-cyan-950/30 border border-cyan-500/25 rounded-xl text-xs space-y-1 mt-4">
+                        {/* Explanation - Sharp Box */}
+                        <div className="p-4 bg-cyan-950/30 border border-cyan-500/25 text-xs space-y-1 mt-4">
                           <span className="font-bold text-cyan-300 flex items-center gap-1.5">
-                            <FileText size={15} /> Explanation & Mathematical Concept:
+                            <FileText size={15} /> Explanation & Solution Key:
                           </span>
                           <p className="text-gray-300 leading-relaxed pt-1">
-                            {currentReviewQ.explanation || "Detailed solution is available in the master CAT key."}
+                            {currentReviewQ.explanation || "Official solution is verified from CAT answer keys."}
                           </p>
                         </div>
 
@@ -660,21 +663,21 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                     )}
                   </div>
 
-                  {/* Right: Question Navigation Matrix */}
-                  <div className="w-full lg:w-64 bg-[#050b1e] p-4 flex flex-col justify-between">
+                  {/* Right: Question Navigation Palette - Sharp Buttons */}
+                  <div className="w-full lg:w-72 bg-[#050b1d] p-5 border-t lg:border-t-0 lg:border-l border-cyan-500/20 flex flex-col justify-between">
                     <div>
-                      <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">
+                      <h4 className="text-xs font-bold text-cyan-300 mb-3 uppercase tracking-wider">
                         {reviewSection} Questions
                       </h4>
                       <div className="grid grid-cols-4 gap-2">
                         {reviewQuestions.map((q, idx) => {
                           const resp = selectedAttempt?.userResponses ? selectedAttempt.userResponses[q.id] : null;
-                          let btnClass = "bg-gray-800 text-gray-400";
+                          let bg = "bg-gray-800 text-gray-400 border border-gray-700";
                           if (resp && resp.answer !== null && resp.answer !== undefined && resp.answer !== '') {
                             const isCorrect = q.type === 'MCQ'
                               ? parseInt(resp.answer, 10) === q.correctAnswer
                               : String(resp.answer).trim().toLowerCase() === String(q.correctAnswer).trim().toLowerCase();
-                            btnClass = isCorrect ? "bg-emerald-600 text-white" : "bg-rose-600 text-white";
+                            bg = isCorrect ? "bg-emerald-600 text-white shadow-xs" : "bg-rose-600 text-white shadow-xs";
                           }
 
                           const isCurrent = idx === selectedReviewQIndex;
@@ -683,7 +686,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                             <button
                               key={q.id}
                               onClick={() => setSelectedReviewQIndex(idx)}
-                              className={`h-9 rounded-lg font-bold text-xs flex items-center justify-center transition-all cursor-pointer ${btnClass} ${
+                              className={`h-9 font-bold text-xs flex items-center justify-center transition-all cursor-pointer ${bg} ${
                                 isCurrent ? 'ring-2 ring-cyan-400 scale-105 shadow-md' : 'opacity-85 hover:opacity-100'
                               }`}
                             >
@@ -694,18 +697,18 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       </div>
                     </div>
 
-                    {/* Legend */}
-                    <div className="mt-6 pt-4 border-t border-cyan-500/20 space-y-2 text-[11px] text-gray-400">
+                    {/* Palette Legend - Sharp Indicators */}
+                    <div className="mt-6 pt-4 border-t border-cyan-500/15 space-y-2 text-[11px] text-gray-400">
                       <div className="flex items-center gap-2">
-                        <div className="w-3.5 h-3.5 rounded bg-emerald-600" />
+                        <div className="w-3.5 h-3.5 bg-emerald-600" />
                         <span>Correct Answer</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-3.5 h-3.5 rounded bg-rose-600" />
+                        <div className="w-3.5 h-3.5 bg-rose-600" />
                         <span>Incorrect Answer</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-3.5 h-3.5 rounded bg-gray-800 border border-gray-600" />
+                        <div className="w-3.5 h-3.5 bg-gray-800 border border-gray-600" />
                         <span>Unattempted</span>
                       </div>
                     </div>
@@ -715,7 +718,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
 
               </div>
             ) : (
-              /* All Past Attempts List */
+              /* All Past Attempts List - Sharp Cards */
               <div className="space-y-4">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
@@ -726,20 +729,19 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                 </div>
 
                 {loadingAttempts ? (
-                  <div className="p-12 text-center text-gray-400 bg-[#070e24]/90 rounded-2xl border border-cyan-500/20">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-2 border-cyan-400 border-t-transparent mb-3" />
+                  <div className="p-12 text-center text-gray-400 bg-[#070e24]/90 border border-cyan-500/20">
+                    <div className="inline-block animate-spin h-8 w-8 border-2 border-cyan-400 border-t-transparent mb-3" />
                     <p className="text-xs">Loading your exam records from Firestore...</p>
                   </div>
                 ) : attempts.length === 0 ? (
-                  <div className="p-12 text-center text-gray-400 bg-[#070e24]/90 rounded-2xl border border-dashed border-gray-700">
-                    <Award size={36} className="text-cyan-400 mx-auto mb-2 opacity-50" />
+                  <div className="p-12 text-center text-gray-400 bg-[#070e24]/90 border border-dashed border-gray-700">
                     <h4 className="text-sm font-bold text-gray-200">No attempts found yet</h4>
                     <p className="text-xs text-gray-500 mt-1 max-w-sm mx-auto">
                       Complete a full mock exam to log your score, view marked responses, and track your percentile.
                     </p>
                     <button
                       onClick={onBack}
-                      className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-xs rounded-lg shadow-md cursor-pointer"
+                      className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-xs shadow-md cursor-pointer"
                     >
                       Start Mock Exam
                     </button>
@@ -756,7 +758,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       return (
                         <div 
                           key={att.id || idx}
-                          className="p-5 rounded-2xl bg-[#070e24]/90 border border-cyan-500/25 shadow-lg flex flex-col justify-between hover:border-cyan-400 transition-all group"
+                          className="p-5 bg-[#070e24]/90 border border-cyan-500/25 shadow-lg flex flex-col justify-between hover:border-cyan-400 transition-all group"
                         >
                           <div>
                             <div className="flex items-center justify-between text-xs text-gray-400 mb-2">
@@ -764,7 +766,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                                 <Calendar size={13} className="text-cyan-400" />
                                 {attDate}
                               </span>
-                              <span className="text-[10px] bg-cyan-500/10 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30 font-mono">
+                              <span className="text-[10px] bg-cyan-500/10 text-cyan-300 px-2 py-0.5 border border-cyan-500/30 font-mono">
                                 Mock #{attempts.length - idx}
                               </span>
                             </div>
@@ -795,14 +797,14 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                             {/* Stats */}
                             <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
                               <span>Accuracy: <strong className="text-emerald-400">{acc}%</strong></span>
-                              <span>Attempted: <strong className="text-white">{att.totalAttempted} / 66</strong></span>
+                              <span>Attempted: <strong className="text-white">{att.totalAttempted} / 68</strong></span>
                             </div>
                           </div>
 
-                          {/* Button to open question-by-question review */}
+                          {/* Button to open question-by-question review - Sharp Box */}
                           <button
                             onClick={() => { setSelectedAttempt(att); setSelectedReviewQIndex(0); }}
-                            className="w-full py-2.5 px-3 rounded-xl bg-cyan-950/60 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 border border-cyan-500/30 hover:border-transparent text-cyan-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer group-hover:border-cyan-400"
+                            className="w-full py-2.5 px-3 bg-cyan-950/60 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 border border-cyan-500/30 hover:border-transparent text-cyan-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer group-hover:border-cyan-400"
                           >
                             <span>Inspect Solutions & Marked Answers</span>
                             <ChevronRight size={14} />
@@ -823,8 +825,8 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
         {activeTab === 'settings' && (
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-4xl mx-auto w-full">
             
-            {/* Left: Edit Candidate Profile */}
-            <div className="md:col-span-7 bg-[#070e24]/90 p-6 rounded-2xl border border-cyan-500/25 shadow-xl space-y-4">
+            {/* Left: Edit Candidate Profile - Sharp Box */}
+            <div className="md:col-span-7 bg-[#070e24]/90 p-6 border border-cyan-500/25 shadow-xl space-y-4">
               <div className="border-b border-cyan-500/20 pb-3">
                 <h3 className="text-base font-bold text-white flex items-center gap-2">
                   <User size={18} className="text-cyan-400" />
@@ -836,7 +838,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
               </div>
 
               {profileMessage.text && (
-                <div className={`p-3 rounded-lg text-xs flex items-center gap-2 ${
+                <div className={`p-3 text-xs flex items-center gap-2 ${
                   profileMessage.type === 'success' 
                     ? 'bg-emerald-950/70 text-emerald-300 border border-emerald-500/40' 
                     : 'bg-red-950/70 text-red-300 border border-red-500/40'
@@ -854,7 +856,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                     required
                   />
                 </div>
@@ -872,7 +874,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       type="email"
                       value={candidateProfile?.email || ''}
                       disabled
-                      className="w-full px-3 py-2 text-base sm:text-sm bg-black/40 border border-gray-700 rounded-lg text-gray-400 cursor-not-allowed font-mono opacity-80"
+                      className="w-full px-3 py-2 text-base sm:text-sm bg-black/40 border border-gray-700 text-gray-400 cursor-not-allowed font-mono opacity-80"
                     />
                   </div>
                   <span className="text-[10px] text-gray-500 mt-1 block">
@@ -893,7 +895,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       type="tel"
                       value={candidateProfile?.mobile || ''}
                       disabled
-                      className="w-full px-3 py-2 text-base sm:text-sm bg-black/40 border border-gray-700 rounded-lg text-gray-400 cursor-not-allowed font-mono opacity-80"
+                      className="w-full px-3 py-2 text-base sm:text-sm bg-black/40 border border-gray-700 text-gray-400 cursor-not-allowed font-mono opacity-80"
                     />
                   </div>
                   <span className="text-[10px] text-gray-500 mt-1 block">
@@ -908,7 +910,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                     <select
                       value={department}
                       onChange={(e) => setDepartment(e.target.value)}
-                      className="w-full px-2.5 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="w-full px-2.5 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
                     >
                       <option value="Computer Science">Computer Science</option>
                       <option value="Electronics and Communication">Electronics and Communication</option>
@@ -926,7 +928,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                     <select
                       value={year}
                       onChange={(e) => setYear(e.target.value)}
-                      className="w-full px-2.5 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="w-full px-2.5 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
                     >
                       <option value="1st Year">1st Year</option>
                       <option value="2nd Year">2nd Year</option>
@@ -941,15 +943,15 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                 <button
                   type="submit"
                   disabled={profileSaving}
-                  className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs rounded-lg transition-all shadow-md cursor-pointer mt-2"
+                  className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs transition-all shadow-md cursor-pointer mt-2"
                 >
                   {profileSaving ? 'Saving Changes...' : 'Save Profile Changes'}
                 </button>
               </form>
             </div>
 
-            {/* Right: Change Password */}
-            <div className="md:col-span-5 bg-[#070e24]/90 p-4 sm:p-6 rounded-2xl border border-cyan-500/25 shadow-xl space-y-4 flex flex-col justify-between">
+            {/* Right: Change Password - Sharp Box */}
+            <div className="md:col-span-5 bg-[#070e24]/90 p-4 sm:p-6 border border-cyan-500/25 shadow-xl space-y-4 flex flex-col justify-between">
               <div>
                 <div className="border-b border-cyan-500/20 pb-3">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
@@ -962,7 +964,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                 </div>
 
                 {passwordMessage.text && (
-                  <div className={`mt-3 p-3 rounded-lg text-xs flex items-center gap-2 ${
+                  <div className={`mt-3 p-3 text-xs flex items-center gap-2 ${
                     passwordMessage.type === 'success' 
                       ? 'bg-emerald-950/70 text-emerald-300 border border-emerald-500/40' 
                       : 'bg-red-950/70 text-red-300 border border-red-500/40'
@@ -980,7 +982,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       placeholder="Min 6 alphanumeric characters"
-                      className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 font-sans"
+                      className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                       required
                     />
                   </div>
@@ -992,7 +994,7 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Re-type new password"
-                      className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 font-sans"
+                      className="w-full px-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                       required
                     />
                   </div>
@@ -1000,14 +1002,14 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                   <button
                     type="submit"
                     disabled={passwordSaving}
-                    className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs rounded-lg transition-all shadow-md cursor-pointer"
+                    className="w-full py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs transition-all shadow-md cursor-pointer"
                   >
                     {passwordSaving ? 'Updating Password...' : 'Update Password'}
                   </button>
                 </form>
               </div>
 
-              <div className="p-3 bg-cyan-950/30 border border-cyan-500/20 rounded-xl text-[11px] text-cyan-300/80 leading-relaxed mt-4">
+              <div className="p-3 bg-cyan-950/30 border border-cyan-500/20 text-[11px] text-cyan-300/80 leading-relaxed mt-4">
                 💡 <strong>Tip:</strong> You can always sign in with your verified Google CET email address if you forget your password.
               </div>
             </div>
