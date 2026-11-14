@@ -1,0 +1,247 @@
+--- PAGE 1 ---
+ 
+ 
+www.mbapathshala.com    Email:- support@mbapathshala.com   Contact Us:- +91 8171833400 
+CAT 2024 
+Previous Year Paper  
+(Slot 2 – LRDI) 
+ 
+ 
+The above is a schematic diagram of walkways (indicated by all the straight-lines) and lakes (3 of them, each in the 
+shape of rectangles – shaded in the diagram) of a gated area. Different points on the walkway are indicated by letters 
+(A through P) with distances being OP = 150 m, ON = MN = 300 m, ML = 400 m, EL = 200 m, DE = 400 m. 
+The following additional information about the facilities in the area is known. 
+1. The only entry/exit point is at C. 
+2. There are many residences within the gated area; all of them are located on the path AH and ML with four of 
+them being at A, H, M, and L. 
+3. The post office is located at P and the bank is located at B. 
+  
+1. One resident whose house is located at L, needs to visit the post office as well as the bank. What is the minimum 
+distance (in m) he has to walk starting from his residence and returning to his residence after visiting both the post 
+office and the bank? 
+A. 3200. 
+B. 2700. 
+C. 3000. 
+D. 3400. 
+ Correct Answer : A 
+ 
+2. One person enters the gated area and decides to walk as much as possible before leaving the area without walking 
+along any path more than once and always walking next to one of the lakes. Note that he may cross a point multiple 
+times. How much distance (in m) will he walk within the gated area? 
+A. 3800. 
+B. 2800. 
+C. 3000. 
+D. 3200. 
+ Correct Answer : A 
+ 
+3. One resident takes a walk within the gated area starting from A and returning to A without going through any point 
+(other than A) more than once. What is the maximum distance (in m) she can walk in this way? 
+ Correct Answer : 5100 
+ 
+
+
+--- PAGE 2 ---
+ 
+ 
+www.mbapathshala.com    Email:- support@mbapathshala.com   Contact Us:- +91 8171833400 
+4. Visitors coming for morning walks are allowed to enter as long as they do not pass by any of the residences and do 
+not cross any point (except C) more than once. What is the maximum distance (in m) that such a visitor can walk 
+within the gated area? 
+ Correct Answer : 3500 
+ 
+Eight gymnastics players numbered 1 through 8 underwent a training camp where they were coached by three coaches 
+Xena, Yuki, and Zara. Each coach trained at least two players. Yuki trained only even numbered players, while Zara 
+trained only odd numbered players. After the camp, the coaches evaluated the players and gave integer ratings to the 
+respective players trained by them on a scale of 1 to 7, with 1 being the lowest rating and 7 the highest. 
+The following additional information is known. 
+1. Xena trained more players than Yuki. 
+2. Player-1 and Player-4 were trained by the same coach, while the coaches who trained Player-2, Player-3 and 
+Player-5 were all different. 
+3. Player-5 and Player-7 were trained by the same coach and got the same rating. All other players got a unique 
+rating. 
+4. The average of the ratings of all the players was 4. 
+5. Player-2 got the highest rating. 
+6. The average of the ratings of the players trained by Yuki was twice that of the players trained by Xena and two 
+more than that of the players trained by Zara. 
+7. Player-4's rating was double of Player-8's and less than Player-5's. 
+  
+5. What best can be concluded about the number of players coached by Zara? 
+A. Exactly  3. 
+B. Either 2 or 3 or 4. 
+C. Exactly 2. 
+D. Either 2 or 3. 
+ Correct Answer : C 
+ 
+6. What was the rating of Player-7? 
+ Correct Answer : 4 
+ 
+7. What was the rating of Player-6? 
+ Correct Answer : 5 
+ 
+8. For how many players the ratings can be determined with certainty? 
+ Correct Answer : 6 
+ 
+9. Who all were the players trained by Xena? 
+A. Player-1, Player-3, Player-4, Player-6. 
+B. Player-1, Player-4, Player-6, Player-8. 
+C. Player-1, Player-3, Player-4, Player-8. 
+D. Player-1, Player-3, Player-4. 
+ Correct Answer : C 
+ 
+The numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 are placed in ten slots of the following grid based on the conditions below. 
+  
+Column 1 
+Column 2 
+Column 3 
+Column 4 
+Row 1 
+  
+  
+  
+  
+Row 2 
+  
+  
+  
+  
+Row 3 
+  
+  
+  
+  
+Row 4 
+  
+  
+  
+  
+
+
+--- PAGE 3 ---
+ 
+ 
+www.mbapathshala.com    Email:- support@mbapathshala.com   Contact Us:- +91 8171833400 
+1. Numbers in any row appear in an increasing order from left to right. 
+2. Numbers in any column appear in a decreasing order from top to bottom. 
+3. 1 is placed either in the same row or in the same column as 10. 
+4. Neither 2 nor 3 is placed in the same row or in the same column as 10. 
+5. Neither 7 nor 8 is placed in the same row or in the same column as 9. 
+6. 4 and 6 are placed in the same row. 
+ 
+10. What is the row number which has the least sum of numbers placed in that row? 
+ Correct Answer : 4 
+ 
+11. Which of the following statements MUST be true? 
+(I).  10 is placed in a slot in Row 1. 
+(II). 1 is placed in a slot in Row 4. 
+A. Both I and II 
+B. Only I 
+C. Only II 
+D. Neither I nor II 
+ Correct Answer : A 
+ 
+12. Which of the following statements MUST be true? 
+(I).  2 is placed in a slot in Column 2. 
+(II). 3 is placed in a slot in Column 3. 
+A. Both I and II 
+B. Neither I nor II 
+C. Only II 
+D. Only I 
+ Correct Answer : B 
+ 
+13. For how many slots in the grid, placement of numbers CANNOT be determined with certainty? 
+ Correct Answer : 2 
+ 
+14. What is the sum of the numbers placed in Column 4? 
+ Correct Answer : 26 
+ 
+An online e-commerce firm receives daily integer product ratings from 1 through 5 given by buyers. The daily average 
+is the average of the ratings given on that day. The cumulative average is the average of all ratings given on or before 
+that day. 
+The rating system began on Day 1, and the cumulative averages were 3 and 3.1 at the end of Day 1 and Day 2, 
+respectively. The distribution of ratings on Day 2 is given in the figure below. 
+ 
+ 
+
+
+--- PAGE 4 ---
+ 
+ 
+www.mbapathshala.com    Email:- support@mbapathshala.com   Contact Us:- +91 8171833400 
+The following information is known about ratings on Day 3. 
+1. 100 buyers gave product ratings on Day 3. 
+2. The modes of the product ratings were 4 and 5. 
+3. The numbers of buyers giving each product rating are non-zero multiples of 10. 
+4. The same number of buyers gave product ratings of 1 and 2, and that number is half the number of buyers 
+who gave a rating of 3. 
+ 
+15. How many buyers gave ratings on Day 1? 
+ Correct Answer : 150 
+ 
+16. What is the daily average rating of Day 3? 
+A. 3.5 
+B. 3.2 
+C. 3.0 
+D. 3.6 
+ Correct Answer : D 
+ 
+17. What is the median of all ratings given on Day 3? 
+ Correct Answer : 4 
+ 
+18. Which of the following is true about the cumulative average ratings of Day 2 and Day 3? 
+A. The cumulative average of Day 3 increased by less than 5% from Day 2. 
+B. The cumulative average of Day 3 increased by more than 8% from Day 2. 
+C. The cumulative average of Day 3 increased by a percentage between 5% and 8% from Day 2. 
+D. The cumulative average of Day 3 decreased from Day 2. 
+ Correct Answer : C 
+ 
+The two plots below give the following information about six firms A, B, C, D, E, and F for 2019 and 2023. 
+PAT: The firm's profits after taxes in Rs. crores, 
+ES: The firm's employee strength, that is the number of employees in the firm, and 
+PRD: The percentage of the firm's PAT that they spend on Research and Development (R&D). 
+In the plots, the horizontal and vertical coordinates of point representing each firm gives their ES and PAT values 
+respectively. The PRD values of each firm are proportional to the areas around the points representing each firm. The 
+areas are comparable between the two plots, i.e., equal areas in the two plots represent the same PRD values for the 
+two years. 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 5 ---
+ 
+ 
+www.mbapathshala.com    Email:- support@mbapathshala.com   Contact Us:- +91 8171833400 
+19. Assume that the annual rate of growth in PAT over the previous year (ARG) remained constant over the years for 
+each of the six firms. Which among the firms A, B, C, and E had the highest ARG? 
+A. Firm C 
+B. Firm B 
+C. Firm A 
+D. Firm E 
+ Correct Answer : D 
+ 
+20. The ratio of the amount of money spent by Firm C on R&D in 2019 to that in 2023 is closest to 
+A. 5 : 9 
+B. 9 : 5 
+C. 9 : 4 
+D. 5 : 6 
+ Correct Answer : B 
+ 
+21. Which among the firms A, C, E, and F had the maximum PAT per employee in 2023? 
+A. Firm C 
+B. Firm A 
+C. Firm E 
+D. Firm F 
+ Correct Answer : A 
+ 
+22. Which among the firms C, D, E, and F had the least amount of R&D spending per employee in 2023? 
+A. Firm D 
+B. Firm E 
+C. Firm C 
+D. Firm F 
+Correct Answer : A 
+ 
+ 
+
+

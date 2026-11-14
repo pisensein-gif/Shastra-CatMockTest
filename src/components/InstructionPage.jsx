@@ -2,10 +2,24 @@ import React, { useState } from 'react';
 import ClubHeader from './ClubHeader';
 import ClubFooter from './ClubFooter';
 import themeBg from '../assets/Theme/Theme.jpg';
-import { ArrowRight, CheckCircle2, ShieldCheck, Clock, BookOpen, AlertTriangle, Maximize, BarChart3, User } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Clock, 
+  BookOpen, 
+  AlertTriangle, 
+  Maximize, 
+  BarChart3, 
+  User,
+  Sparkles,
+  Layers
+} from 'lucide-react';
+import { PAPER_MODES } from '../utils/catExamGenerator';
 
 export default function InstructionPage({ candidateProfile, onStartExam, onLogout, onOpenProfile }) {
   const [agreed, setAgreed] = useState(false);
+  const [selectedPaperMode, setSelectedPaperMode] = useState('dynamic_random');
   const candidateName = candidateProfile?.name || "Abhishek K P";
 
   const handleBeginExam = async () => {
@@ -24,7 +38,7 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
       console.warn("Fullscreen auto-trigger warning:", err);
     }
 
-    onStartExam();
+    onStartExam(selectedPaperMode);
   };
 
   return (
@@ -118,6 +132,66 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
               </div>
             </div>
 
+            {/* Examination Paper Selection */}
+            <div className="bg-gradient-to-r from-[#0a1840] via-[#091f4a] to-[#071330] border border-cyan-500/40 p-4 sm:p-5 rounded-2xl shadow-[0_0_25px_rgba(34,211,238,0.15)] space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-md bg-cyan-500/20 flex items-center justify-center text-cyan-300">
+                    <Sparkles size={14} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-xs sm:text-sm">
+                      Select Question Paper Mode:
+                    </h3>
+                    <p className="text-[10px] sm:text-[11px] text-cyan-300/70">
+                      Standard CAT Pattern: 68 Questions • 120 Minutes (40 min / section)
+                    </p>
+                  </div>
+                </div>
+                <span className="self-start sm:self-auto text-[10px] font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 px-2.5 py-0.5 rounded-full">
+                  Question Bank: 136 Qs Official Pool
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {PAPER_MODES.map((mode) => {
+                  const isSelected = selectedPaperMode === mode.id;
+                  return (
+                    <button
+                      key={mode.id}
+                      type="button"
+                      onClick={() => setSelectedPaperMode(mode.id)}
+                      className={`text-left p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between relative group ${
+                        isSelected 
+                          ? 'bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.3)] ring-1 ring-cyan-400' 
+                          : 'bg-black/30 border-cyan-500/20 hover:border-cyan-400/50 hover:bg-black/50'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-1 mb-2">
+                        <span className="text-xs font-bold text-white group-hover:text-cyan-200 transition-colors">
+                          {mode.title}
+                        </span>
+                        <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 ${
+                          isSelected ? 'bg-cyan-400 text-slate-950 shadow-xs' : 'bg-white/10 text-cyan-300 border border-white/10'
+                        }`}>
+                          {mode.badge}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-gray-300 leading-snug">
+                        {mode.subtitle}
+                      </p>
+                      {isSelected && (
+                        <div className="mt-2.5 flex items-center gap-1.5 text-[10px] text-cyan-300 font-semibold">
+                          <CheckCircle2 size={12} className="text-cyan-400" />
+                          <span>Active Examination Mode</span>
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             {/* Sectional Rules Notice */}
             <div className="p-4 bg-gradient-to-r from-blue-950/60 to-cyan-950/60 border-l-4 border-cyan-400 rounded-r-xl space-y-1.5 text-xs text-cyan-100">
               <p className="font-bold text-white text-sm flex items-center gap-2">
@@ -125,7 +199,7 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
                 <span>CAT Examination Pattern & Sectional Timing:</span>
               </p>
               <p className="text-gray-300">
-                The test comprises three mandatory sections to be attempted in a strictly sequential order:
+                The test comprises three mandatory sections (total 68 questions) to be attempted in a strictly sequential order:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
                 <div className="bg-black/30 border border-cyan-500/20 p-2.5 rounded-lg">
@@ -134,7 +208,7 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
                 </div>
                 <div className="bg-black/30 border border-cyan-500/20 p-2.5 rounded-lg">
                   <div className="font-bold text-white">Section II: DILR</div>
-                  <div className="text-[11px] text-cyan-400">40 Minutes • 20 Qs</div>
+                  <div className="text-[11px] text-cyan-400">40 Minutes • 22 Qs</div>
                 </div>
                 <div className="bg-black/30 border border-cyan-500/20 p-2.5 rounded-lg">
                   <div className="font-bold text-white">Section III: QA</div>

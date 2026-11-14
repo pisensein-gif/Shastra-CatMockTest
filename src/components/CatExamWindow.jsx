@@ -496,6 +496,17 @@ export default function CatExamWindow({
                 {resolvedPassage}
               </div>
 
+              {/* Problem/Set Diagram */}
+              {currentQuestion?.diagramUrl && (
+                <div className="my-3 flex justify-center bg-gray-50 border border-gray-200 rounded-lg p-2.5">
+                  <img 
+                    src={currentQuestion.diagramUrl} 
+                    alt="Problem Diagram" 
+                    className="max-w-full max-h-[380px] object-contain rounded shadow-xs" 
+                  />
+                </div>
+              )}
+
               {/* Mobile button to switch straight to question */}
               <div className="md:hidden mt-5 pt-3 border-t border-gray-200">
                 <button
@@ -522,6 +533,17 @@ export default function CatExamWindow({
               <div className="text-xs sm:text-sm font-medium text-gray-800 mb-6 leading-relaxed whitespace-pre-line">
                 {currentQuestion?.questionText}
               </div>
+
+              {/* Standalone Question Diagram (if not already displayed in passage pane) */}
+              {currentQuestion?.diagramUrl && !resolvedPassage && (
+                <div className="my-4 flex justify-center bg-gray-50 border border-gray-200 rounded-lg p-2.5">
+                  <img 
+                    src={currentQuestion.diagramUrl} 
+                    alt="Question Diagram" 
+                    className="max-w-full max-h-[350px] object-contain rounded shadow-xs" 
+                  />
+                </div>
+              )}
 
               {/* MCQ Options */}
               {currentQuestion?.type === 'MCQ' && (

@@ -302,6 +302,17 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                     </div>
                   )}
 
+                  {/* Diagram in Review */}
+                  {currentReviewQ.diagramUrl && (
+                    <div className="my-2.5 flex justify-center bg-gray-50 border border-gray-200 rounded-lg p-2">
+                      <img 
+                        src={currentReviewQ.diagramUrl} 
+                        alt="Question Diagram" 
+                        className="max-h-56 object-contain rounded" 
+                      />
+                    </div>
+                  )}
+
                   {/* Question Text */}
                   <div className="text-xs sm:text-sm font-medium text-gray-900 whitespace-pre-line leading-relaxed">
                     {currentReviewQ.questionText}

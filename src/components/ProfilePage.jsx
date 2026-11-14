@@ -572,6 +572,17 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                           </div>
                         )}
 
+                        {/* Diagram if present */}
+                        {currentReviewQ.diagramUrl && (
+                          <div className="my-3 flex justify-center bg-black/40 border border-cyan-500/20 rounded-xl p-3">
+                            <img 
+                              src={currentReviewQ.diagramUrl} 
+                              alt="Problem Diagram" 
+                              className="max-h-60 object-contain rounded-lg" 
+                            />
+                          </div>
+                        )}
+
                         {/* Question Text */}
                         <div className="text-sm font-medium text-white whitespace-pre-line leading-relaxed">
                           {currentReviewQ.questionText}

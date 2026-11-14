@@ -6,7 +6,8 @@ import {
   fetchQuestionsFromFirestore, 
   seedQuestionsToFirestore 
 } from './firebase';
-import { sampleCatQuestions } from './data/catQuestions';
+import { officialCatQuestionsBank, DIAGRAM_MAP } from './data/catOfficialQuestions';
+import { getExamPaper } from './utils/catExamGenerator';
 import LoadingScreen from './components/LoadingScreen';
 import LoginSignup from './components/LoginSignup';
 import InstructionPage from './components/InstructionPage';
@@ -16,14 +17,18 @@ import ProfilePage from './components/ProfilePage';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
-  const [screen, setScreen] = useState('login'); // 'login' | 'instructions' | 'exam' | 'result'
+  const [screen, setScreen] = useState('login'); // 'login' | 'instructions' | 'exam' | 'result' | 'profile'
   const [currentUser, setCurrentUser] = useState(null);
   const [candidateProfile, setCandidateProfile] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
 
-  // Questions from Firestore
-  const [questions, setQuestions] = useState(sampleCatQuestions);
+  // Full Question Pool (136 Questions)
+  const [questionBank, setQuestionBank] = useState(officialCatQuestionsBank);
   const [questionsLoaded, setQuestionsLoaded] = useState(false);
+
+  // Active Exam Paper (68 Questions satisfying exact CAT pattern)
+  const [examQuestions, setExamQuestions] = useState(() => getExamPaper('dynamic_random', officialCatQuestionsBank));
+  const [activePaperMode, setActivePaperMode] = useState('dynamic_random');
 
   // User exam responses
   const [userResponses, setUserResponses] = useState({});
@@ -55,29 +60,31 @@ export default function App() {
     return () => unsubscribe();
   }, []);
 
-  // 2. Load questions from Firestore
+  // 2. Load / Seed questions from Firestore
   useEffect(() => {
     async function loadQuestions() {
       try {
         const firestoreQuestions = await fetchQuestionsFromFirestore();
-        if (firestoreQuestions && firestoreQuestions.length > 0) {
-          setQuestions(firestoreQuestions);
+        if (firestoreQuestions && firestoreQuestions.length >= 68) {
+          // Re-attach diagram URLs from local asset map if needed
+          const resolved = firestoreQuestions.map(q => ({
+            ...q,
+            diagramUrl: q.diagramPath && DIAGRAM_MAP[q.diagramPath] ? DIAGRAM_MAP[q.diagramPath] : q.diagramUrl
+          }));
+          setQuestionBank(resolved);
         } else {
-          // If Firestore is empty, auto-seed CAT questions into Firestore
+          // Auto-seed Official CAT Question Bank (136 Qs) into Firestore
           try {
-            await seedQuestionsToFirestore(sampleCatQuestions);
-            const freshQuestions = await fetchQuestionsFromFirestore();
-            if (freshQuestions && freshQuestions.length > 0) {
-              setQuestions(freshQuestions);
-            }
+            await seedQuestionsToFirestore(officialCatQuestionsBank);
+            console.log("Successfully seeded official CAT question bank into Firestore.");
           } catch (seedErr) {
-            console.warn("Seeding fallback:", seedErr);
-            setQuestions(sampleCatQuestions);
+            console.warn("Seeding notice (running in local offline fallback):", seedErr);
           }
+          setQuestionBank(officialCatQuestionsBank);
         }
       } catch (err) {
         console.error("Error in loadQuestions:", err);
-        setQuestions(sampleCatQuestions);
+        setQuestionBank(officialCatQuestionsBank);
       } finally {
         setQuestionsLoaded(true);
       }
@@ -93,8 +100,12 @@ export default function App() {
     setScreen('instructions');
   };
 
-  // Handle start exam
-  const handleStartExam = () => {
+  // Handle start exam with selected paper mode
+  const handleStartExam = (paperMode = 'dynamic_random') => {
+    setActivePaperMode(paperMode);
+    const generatedPaper = getExamPaper(paperMode, questionBank);
+    setExamQuestions(generatedPaper);
+    setUserResponses({});
     setScreen('exam');
   };
 
@@ -152,7 +163,7 @@ export default function App() {
       {screen === 'exam' && (
         <CatExamWindow
           candidateProfile={candidateProfile}
-          questions={questions}
+          questions={examQuestions}
           onSubmitExam={handleSubmitExam}
         />
       )}
@@ -161,18 +172,18 @@ export default function App() {
       {screen === 'result' && (
         <ResultModal
           candidateProfile={candidateProfile}
-          questions={questions}
+          questions={examQuestions}
           userResponses={userResponses}
           onRestart={handleRestartExam}
           onViewProfile={() => setScreen('profile')}
         />
       )}
 
-      {/* Screen 5: Candidate Profile, Complete Analytics & Attempt Review */}
+      {/* Screen 5: Candidate Profile, Complete Analytics & Past Attempts */}
       {screen === 'profile' && (
         <ProfilePage
           candidateProfile={candidateProfile}
-          questions={questions}
+          questions={questionBank}
           onUpdateProfile={setCandidateProfile}
           onBack={() => setScreen('instructions')}
           onLogout={handleLogout}

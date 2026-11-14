@@ -99,20 +99,12 @@ export async function fetchUserExamAttempts(userId) {
 // Fetch CAT Questions from Firestore
 export async function fetchQuestionsFromFirestore() {
   try {
-    const qCol = collection(db, "cat_mock_questions");
+    const qCol = collection(db, "cat_official_questions");
     const snapshot = await getDocs(qCol);
     if (!snapshot.empty) {
       const questions = [];
       snapshot.forEach(docSnap => {
         questions.push({ id: docSnap.id, ...docSnap.data() });
-      });
-      // Sort by sectionOrder and questionNumber
-      questions.sort((a, b) => {
-        if (a.section !== b.section) {
-          const order = { VARC: 1, DILR: 2, QA: 3 };
-          return (order[a.section] || 9) - (order[b.section] || 9);
-        }
-        return a.questionNumber - b.questionNumber;
       });
       return questions;
     }
@@ -123,17 +115,26 @@ export async function fetchQuestionsFromFirestore() {
   }
 }
 
-// Seed Questions into Firestore
+// Seed Official Question Bank into Firestore in chunks
 export async function seedQuestionsToFirestore(questionsList) {
   try {
-    const batch = writeBatch(db);
-    questionsList.forEach(q => {
-      // Use deterministic doc id e.g. "VARC_1", "DILR_5"
-      const docId = `${q.section}_${q.questionNumber}`;
-      const docRef = doc(db, "cat_mock_questions", docId);
-      batch.set(docRef, q);
-    });
-    await batch.commit();
+    const chunkSize = 100;
+    for (let i = 0; i < questionsList.length; i += chunkSize) {
+      const chunk = questionsList.slice(i, i + chunkSize);
+      const batch = writeBatch(db);
+      chunk.forEach(q => {
+        const docId = q.id || `${q.slot || 1}_${q.section}_${q.questionNumber}`;
+        const docRef = doc(db, "cat_official_questions", docId);
+        // Exclude circular or imported object properties if any
+        const { diagramUrl, ...rest } = q;
+        batch.set(docRef, {
+          ...rest,
+          // store diagram path identifier
+          diagramPath: typeof diagramUrl === 'string' ? diagramUrl : (q.diagramUrl?.src || null)
+        });
+      });
+      await batch.commit();
+    }
     return true;
   } catch (err) {
     console.error("Error seeding questions to Firestore:", err);
