@@ -20,3 +20,4 @@ print(text[ans_pos[12]+15:ans_pos[13]])
 
 print("\nBetween Q17 and Q18:")
 print(text[ans_pos[16]+15:ans_pos[17]])
+

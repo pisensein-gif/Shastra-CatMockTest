@@ -18,3 +18,4 @@ def inspect_dilr(filepath, slot_num):
 
 inspect_dilr('Scratch/CAT_2024_Slot_1_1777468082_54ba5c5f.pdf.txt', 1)
 inspect_dilr('Scratch/CAT_2024_Slot_2_1777468101_ed53e93c.pdf.txt', 2)
+

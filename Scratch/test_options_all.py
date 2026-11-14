@@ -31,3 +31,4 @@ print("=== S1 LRDI ===")
 test_mcq_options('Scratch/CAT_2024_Slot_1_1777468082_54ba5c5f.pdf.txt')
 print("=== S2 LRDI ===")
 test_mcq_options('Scratch/CAT_2024_Slot_2_1777468101_ed53e93c.pdf.txt')
+

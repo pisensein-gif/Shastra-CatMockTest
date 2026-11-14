@@ -48,3 +48,4 @@ for sec in ['VARC', 'DILR', 'QA']:
     s1_cnt = len([q for q in data['slot1Questions'] if q['section'] == sec])
     s2_cnt = len([q for q in data['slot2Questions'] if q['section'] == sec])
     print(f"Section {sec}: Slot 1 = {s1_cnt}, Slot 2 = {s2_cnt}")
+

@@ -216,3 +216,4 @@ export function getExamPaper(mode = 'dynamic_random', questionBank = officialCat
   // Default to dynamic random
   return generateRandomCatPaper(questionBank);
 }
+

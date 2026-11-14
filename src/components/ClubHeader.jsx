@@ -84,27 +84,7 @@ export default function ClubHeader({ candidateProfile, onLogout, onOpenProfile, 
               </button>
             )}
           </div>
-        ) : (
-          /* Public Header Quick Info */
-          <div className="flex items-center gap-2 sm:gap-4 text-xs">
-            <div className="hidden md:flex items-center gap-4 text-gray-300 font-medium">
-              <span className="flex items-center gap-1.5 text-cyan-300/90">
-                <Clock size={14} className="text-cyan-400" />
-                120 Mins (40m / Sec)
-              </span>
-              <span className="flex items-center gap-1.5 text-blue-300/90">
-                <BookOpen size={14} className="text-blue-400" />
-                66 Questions (VARC, DILR, QA)
-              </span>
-            </div>
-
-            <div className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 font-semibold text-[10px] sm:text-[11px] shadow-[0_0_10px_rgba(34,211,238,0.15)]">
-              <ShieldCheck size={13} className="text-cyan-400 shrink-0" />
-              <span className="hidden xs:inline">Official CBT Pattern</span>
-              <span className="xs:hidden">CBT</span>
-            </div>
-          </div>
-        )}
+        ) : null}
 
       </div>
     </header>

@@ -96,7 +96,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-3 sm:p-4">
-      <div className="bg-[#070e24] rounded-2xl shadow-[0_0_50px_rgba(14,165,233,0.3)] max-w-md w-full max-h-[92vh] flex flex-col overflow-hidden border border-cyan-500/40 animate-fadeIn font-sans text-gray-200">
+      <div className="bg-[#070e24] shadow-[0_0_50px_rgba(14,165,233,0.3)] max-w-md w-full max-h-[92vh] flex flex-col overflow-hidden border border-cyan-500/40 animate-fadeIn font-sans text-gray-200">
         
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-950 via-[#0a183d] to-cyan-950 p-4 sm:p-6 text-center border-b border-cyan-500/20 shrink-0">
@@ -114,7 +114,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
         {/* Form - Scrollable */}
         <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3.5 sm:space-y-4 overflow-y-auto flex-1">
           {error && (
-            <div className="flex items-start gap-2.5 p-3 text-xs bg-red-950/70 text-red-200 border border-red-500/40 rounded-lg">
+            <div className="flex items-start gap-2.5 p-3 text-xs bg-red-950/70 text-red-200 border border-red-500/40">
               <AlertCircle size={16} className="shrink-0 text-red-400 mt-0.5" />
               <span>{error}</span>
             </div>
@@ -132,7 +132,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Abhishek K P"
-                className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-sans"
+                className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                 required
               />
             </div>
@@ -154,7 +154,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))}
                 placeholder="e.g. 9876543210"
-                className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-mono"
+                className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-mono"
                 required
               />
             </div>
@@ -167,7 +167,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
               <select
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="w-full py-2 px-2.5 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full py-2 px-2.5 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
               >
                 <option value="Computer Science">Computer Science</option>
                 <option value="Electronics and Communication">Electronics and Communication</option>
@@ -185,7 +185,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
               <select
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-                className="w-full py-2 px-2.5 text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="w-full py-2 px-2.5 text-sm bg-[#040817] border border-cyan-500/30 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
               >
                 <option value="1st Year">1st Year</option>
                 <option value="2nd Year">2nd Year</option>
@@ -216,7 +216,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="At least 6 chars with letter & digit"
-                    className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-sans"
+                    className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                     required
                   />
                 </div>
@@ -233,7 +233,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Re-enter password"
-                    className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-sans"
+                    className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-[#040817] border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 font-sans"
                     required
                   />
                 </div>
@@ -245,7 +245,7 @@ export default function ProfileCompletionModal({ user, onComplete }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold py-2.5 px-4 rounded-lg transition-all shadow-[0_0_15px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full mt-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold py-2.5 px-4 transition-all shadow-[0_0_15px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2 cursor-pointer"
           >
             {loading ? (
               <span className="inline-block animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />

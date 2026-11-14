@@ -14,3 +14,4 @@ for i in range(len(ans_pos)):
     first_line = chunk.split('\n')[0] if chunk else ''
     last_line = chunk.split('\n')[-1] if chunk else ''
     print(f"Q{i+1}: first: '{first_line[:50]}' | last: '{last_line[:50]}'")
+

@@ -110,3 +110,4 @@ for q in s1_qa:
     print(f"S1 Q{q['questionNumber']} [{q['type']}]: ans={q['correctAnswer']} (raw: '{q['ansRaw']}') | options={len(q['options'])}")
 for q in s2_qa:
     print(f"S2 Q{q['questionNumber']} [{q['type']}]: ans={q['correctAnswer']} (raw: '{q['ansRaw']}') | options={len(q['options'])}")
+

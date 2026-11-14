@@ -23,3 +23,4 @@ def test_s2_varc():
             print(f"Q{i+1}: ans={ans} | WARNING: '{i+1}.' not found! First 60 chars: {chunk[:60]}")
 
 test_s2_varc()
+
