@@ -1,5 +1,6 @@
 import React from 'react';
 import shastraLogo from '../assets/logo.png';
+import cetLogo from '../assets/cet_logo.png';
 import { User, LogOut, Settings } from 'lucide-react';
 
 export default function ClubHeader({ candidateProfile, onLogout, onOpenProfile, showCandidate = false }) {
@@ -7,21 +8,34 @@ export default function ClubHeader({ candidateProfile, onLogout, onOpenProfile, 
     <header className="w-full bg-[#040817]/95 backdrop-blur-md border-b border-cyan-500/25 px-3 sm:px-8 py-2.5 sm:py-3 z-30 shrink-0">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         
-        {/* Brand & Logo */}
+        {/* Brand & Dual Logos (Shastra CET & College Union) */}
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Shastra Logo */}
             <img 
               src={shastraLogo} 
               alt="Shastra CET" 
-              className="h-8 sm:h-11 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]" 
+              className="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]" 
             />
+            
+            {/* Divider */}
+            <div className="h-6 sm:h-7 w-px bg-cyan-500/30"></div>
+            
+            {/* College of Engineering Trivandrum / College Union Logo */}
+            <img 
+              src={cetLogo} 
+              alt="CET College Union 2026-27" 
+              className="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]" 
+            />
+
             <div className="h-6 sm:h-7 w-px bg-cyan-500/30 hidden xs:block"></div>
+
             <div>
               <span className="text-xs sm:text-base font-bold tracking-wider text-white hidden xs:block leading-none">
                 CAT MOCK PORTAL
               </span>
-              <span className="text-[9px] sm:text-[10px] text-cyan-400 font-semibold tracking-wider sm:tracking-widest uppercase block mt-0.5 sm:mt-1">
-                powered by shastra cet
+              <span className="text-[8px] sm:text-[10px] text-cyan-400 font-semibold tracking-wider sm:tracking-widest uppercase block mt-0.5 sm:mt-1">
+                Shastra CET × College Union 2026-27
               </span>
             </div>
           </div>

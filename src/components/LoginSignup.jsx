@@ -10,6 +10,7 @@ import ClubHeader from './ClubHeader';
 import ClubFooter from './ClubFooter';
 import themeBg from '../assets/Theme/Theme.jpg';
 import shastraLogo from '../assets/logo.png';
+import cetLogo from '../assets/cet_logo.png';
 import { LogIn, UserPlus, Mail, Lock, AlertCircle, ShieldAlert } from 'lucide-react';
 
 export default function LoginSignup({ onLoginSuccess }) {
@@ -144,18 +145,31 @@ export default function LoginSignup({ onLoginSuccess }) {
       <main className="flex-1 flex items-center justify-center p-3 sm:p-6 z-10 my-3 sm:my-6">
         <div className="max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.85)] border border-cyan-500/35 bg-[#070e24]/95 backdrop-blur-xl p-5 sm:p-8">
           
-          {/* Brand Header */}
+          {/* Brand Header with Dual Logos & Collaboration */}
           <div className="flex flex-col items-center justify-center mb-6 text-center">
-            <img 
-              src={shastraLogo} 
-              alt="Shastra CET" 
-              className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)] mb-2" 
-            />
+            {/* Dual Logos */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3">
+              <img 
+                src={shastraLogo} 
+                alt="Shastra CET" 
+                className="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]" 
+              />
+              <div className="h-7 sm:h-8 w-px bg-cyan-500/40" />
+              <img 
+                src={cetLogo} 
+                alt="College Union 2026-27" 
+                className="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]" 
+              />
+            </div>
+
             <h1 className="text-base sm:text-lg font-bold text-white tracking-wider uppercase">
               CAT MOCK TEST PORTAL
             </h1>
-            <p className="text-[11px] text-cyan-400 font-semibold tracking-wide uppercase mt-0.5">
-              Shastra CET • Examination System
+            <p className="text-[11px] text-cyan-300 font-semibold tracking-wide mt-1">
+              Provided by Shastra CET in collaboration with College Union 2026-27
+            </p>
+            <p className="text-[10px] text-gray-400">
+              College of Engineering Trivandrum (CET)
             </p>
           </div>
 

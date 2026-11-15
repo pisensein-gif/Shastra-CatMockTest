@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updatePassword } from 'firebase/auth';
 import { auth, saveUserProfile } from '../firebase';
 import shastraLogo from '../assets/logo.png';
+import cetLogo from '../assets/cet_logo.png';
 import { UserCheck, Lock, Phone, GraduationCap, Building2, User, AlertCircle, CheckCircle, ShieldCheck } from 'lucide-react';
 
 export default function ProfileCompletionModal({ user, onComplete }) {
@@ -98,15 +99,26 @@ export default function ProfileCompletionModal({ user, onComplete }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-3 sm:p-4">
       <div className="bg-[#070e24] shadow-[0_0_50px_rgba(14,165,233,0.3)] max-w-md w-full max-h-[92vh] flex flex-col overflow-hidden border border-cyan-500/40 animate-fadeIn font-sans text-gray-200">
         
-        {/* Header */}
-        <div className="bg-gradient-to-r from-blue-950 via-[#0a183d] to-cyan-950 p-4 sm:p-6 text-center border-b border-cyan-500/20 shrink-0">
-          <img 
-            src={shastraLogo} 
-            alt="Shastra CET" 
-            className="h-9 sm:h-10 w-auto object-contain mx-auto mb-2 sm:mb-3 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" 
-          />
+        {/* Header with Dual Logos & Collaboration Subtitle */}
+        <div className="bg-gradient-to-r from-blue-950 via-[#0a183d] to-cyan-950 p-4 sm:p-5 text-center border-b border-cyan-500/20 shrink-0">
+          <div className="flex items-center justify-center gap-3 mb-2.5">
+            <img 
+              src={shastraLogo} 
+              alt="Shastra CET" 
+              className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" 
+            />
+            <div className="h-6 sm:h-7 w-px bg-cyan-500/30" />
+            <img 
+              src={cetLogo} 
+              alt="College Union 2026-27" 
+              className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" 
+            />
+          </div>
           <h2 className="text-base sm:text-lg font-bold text-white tracking-wide">Finish Candidate Profile</h2>
-          <p className="text-xs text-cyan-200/80 mt-0.5 sm:mt-1">
+          <p className="text-[11px] text-cyan-300 font-medium">
+            Shastra CET × College Union 2026-27
+          </p>
+          <p className="text-xs text-gray-400 mt-1">
             Verified: <span className="font-mono text-cyan-300 font-semibold">{user.email}</span>
           </p>
         </div>

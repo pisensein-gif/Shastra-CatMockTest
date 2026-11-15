@@ -65,7 +65,7 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
                   General Instructions for Candidates
                 </h2>
                 <p className="text-[10px] sm:text-[11px] text-cyan-300/70">
-                  Please read the exam guidelines carefully before starting the test.
+                  Please read the exam guidelines carefully • Provided by Shastra CET in collaboration with College Union 2026-27
                 </p>
               </div>
             </div>
@@ -218,9 +218,13 @@ export default function InstructionPage({ candidateProfile, onStartExam, onLogou
 
           {/* Action Footer - Sharp Box */}
           <div className="bg-[#050b1e] px-6 py-4 border-t border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
               <span className="text-xs text-gray-400">
                 Assigned Candidate System: <strong className="text-cyan-300">SHASTRA-CBT-01</strong>
+              </span>
+              <span className="hidden sm:inline text-gray-600">•</span>
+              <span className="text-[11px] sm:text-xs text-cyan-400/90 font-medium">
+                Shastra CET × College Union 2026-27
               </span>
             </div>
 

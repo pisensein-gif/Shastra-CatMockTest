@@ -199,6 +199,9 @@ export default function ProfilePage({ candidateProfile, questions, onUpdateProfi
                 <span className="text-[10px] sm:text-xs bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 font-mono shrink-0">
                   CET Student
                 </span>
+                <span className="text-[10px] sm:text-xs bg-blue-500/20 text-cyan-200 border border-cyan-500/30 px-2 py-0.5 font-sans shrink-0 hidden sm:inline-block">
+                  Shastra CET × College Union 2026-27
+                </span>
               </h1>
               <p className="text-[11px] sm:text-xs text-gray-400 truncate max-w-[260px] sm:max-w-none">
                 {candidateProfile?.department} • {candidateProfile?.year}

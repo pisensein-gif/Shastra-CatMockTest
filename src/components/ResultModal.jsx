@@ -92,24 +92,26 @@ export default function ResultModal({ candidateProfile, questions, userResponses
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-2 sm:p-4 overflow-y-auto">
-      <div className="bg-white rounded-xl shadow-2xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-gray-300 font-sans my-auto">
+      <div className="bg-white shadow-2xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-gray-300 font-sans my-auto">
         
-        {/* Header */}
+        {/* Header with Collaboration Attribution */}
         <div className="bg-gradient-to-r from-[#1f78b4] via-[#145a8a] to-[#0a3858] text-white p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 select-none shadow shrink-0">
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center text-amber-300 shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 flex items-center justify-center text-amber-300 shrink-0">
               <Award size={20} />
             </div>
             <div>
               <h2 className="text-sm sm:text-lg font-bold leading-tight">CAT Mock Examination — Scorecard</h2>
-              <p className="text-[10px] sm:text-xs text-blue-200 mt-0.5">Candidate: {candidateProfile?.name || 'Candidate'} • Roll: SHASTRA-{candidateProfile?.uid?.slice(0, 6) || 'CBT'}</p>
+              <p className="text-[10px] sm:text-xs text-blue-200 mt-0.5">
+                Candidate: {candidateProfile?.name || 'Candidate'} • Shastra CET in collaboration with College Union 2026-27
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
             <button
               onClick={() => setActiveTab('summary')}
-              className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              className={`flex-1 sm:flex-initial text-center px-3 sm:px-4 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
                 activeTab === 'summary' ? 'bg-white text-[#1f78b4]' : 'bg-white/10 text-white hover:bg-white/20'
               }`}
             >
@@ -117,7 +119,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
             </button>
             <button
               onClick={() => setActiveTab('review')}
-              className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              className={`flex-1 sm:flex-initial text-center px-3 sm:px-4 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
                 activeTab === 'review' ? 'bg-white text-[#1f78b4]' : 'bg-white/10 text-white hover:bg-white/20'
               }`}
             >
@@ -129,21 +131,21 @@ export default function ResultModal({ candidateProfile, questions, userResponses
         {/* Tab 1: Overview Scorecard */}
         {activeTab === 'summary' && (
           <div className="p-3.5 sm:p-6 overflow-y-auto space-y-4 sm:space-y-6 flex-1 text-gray-800">
-            {/* Top Score Callouts */}
+            {/* Top Score Callouts - Sharp Boxes */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
-              <div className="bg-blue-50 border border-blue-200 p-3 sm:p-4 rounded-xl text-center shadow-xs">
+              <div className="bg-blue-50 border border-blue-200 p-3 sm:p-4 text-center shadow-xs">
                 <span className="text-[10px] sm:text-xs text-blue-700 font-semibold uppercase tracking-wider">Total Score</span>
                 <div className="text-2xl sm:text-3xl font-black text-[#1f78b4] mt-0.5 sm:mt-1">{totalScore}</div>
                 <span className="text-[10px] sm:text-[11px] text-gray-500">out of {maxPossible}</span>
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 p-3 sm:p-4 rounded-xl text-center shadow-xs">
+              <div className="bg-amber-50 border border-amber-200 p-3 sm:p-4 text-center shadow-xs">
                 <span className="text-[10px] sm:text-xs text-amber-700 font-semibold uppercase tracking-wider">Est. Percentile</span>
                 <div className="text-2xl sm:text-3xl font-black text-amber-600 mt-0.5 sm:mt-1">{estimatedPercentile}%ile</div>
                 <span className="text-[10px] sm:text-[11px] text-gray-500">Based on cutoffs</span>
               </div>
 
-              <div className="bg-emerald-50 border border-emerald-200 p-3 sm:p-4 rounded-xl text-center shadow-xs">
+              <div className="bg-emerald-50 border border-emerald-200 p-3 sm:p-4 text-center shadow-xs">
                 <span className="text-[10px] sm:text-xs text-emerald-700 font-semibold uppercase tracking-wider">Accuracy</span>
                 <div className="text-2xl sm:text-3xl font-black text-emerald-600 mt-0.5 sm:mt-1">
                   {totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0}%
@@ -151,7 +153,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                 <span className="text-[10px] sm:text-[11px] text-gray-500">{totalCorrect} of {totalAttempted} att.</span>
               </div>
 
-              <div className="bg-purple-50 border border-purple-200 p-3 sm:p-4 rounded-xl text-center shadow-xs">
+              <div className="bg-purple-50 border border-purple-200 p-3 sm:p-4 text-center shadow-xs">
                 <span className="text-[10px] sm:text-xs text-purple-700 font-semibold uppercase tracking-wider">Attempt Rate</span>
                 <div className="text-2xl sm:text-3xl font-black text-purple-600 mt-0.5 sm:mt-1">
                   {Math.round((totalAttempted / questions.length) * 100)}%
@@ -160,8 +162,8 @@ export default function ResultModal({ candidateProfile, questions, userResponses
               </div>
             </div>
 
-            {/* Section-Wise Table */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden shadow-xs">
+            {/* Section-Wise Table - Sharp Box */}
+            <div className="border border-gray-200 overflow-hidden shadow-xs">
               <div className="bg-gray-100 px-4 py-3 font-bold text-xs uppercase text-gray-700 tracking-wide border-b border-gray-200">
                 Section-Wise Performance Breakdown
               </div>
@@ -191,7 +193,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                           <td className="py-3 px-4 text-center font-semibold text-red-600">{s.incorrect}</td>
                           <td className="py-3 px-4 text-center font-black text-sm text-gray-900">{s.score}</td>
                           <td className="py-3 px-4 text-center">
-                            <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                            <span className={`px-2 py-0.5 text-[11px] font-bold ${
                               acc >= 80 ? 'bg-green-100 text-green-800' :
                               acc >= 50 ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800'
                             }`}>
@@ -219,8 +221,8 @@ export default function ResultModal({ candidateProfile, questions, userResponses
               </div>
             </div>
 
-            {/* Quick action notice */}
-            <div className="bg-blue-50 border border-blue-200 p-3.5 sm:p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            {/* Quick action notice - Sharp Box */}
+            <div className="bg-blue-50 border border-blue-200 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold text-blue-900">
                   Ready to review solutions and answer keys?
@@ -231,7 +233,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
               </div>
               <button
                 onClick={() => setActiveTab('review')}
-                className="w-full sm:w-auto px-4 py-2 bg-[#1f78b4] hover:bg-[#165a88] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2 bg-[#1f78b4] hover:bg-[#165a88] text-white text-xs font-semibold shadow-sm transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>Review Questions & Solutions</span>
                 <ChevronRight size={14} />
@@ -256,7 +258,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                       setReviewSection(sec);
                       setSelectedReviewQIndex(0);
                     }}
-                    className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                    className={`px-4 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
                       reviewSection === sec 
                         ? 'bg-[#1f78b4] text-white shadow-xs' 
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -277,18 +279,18 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                     {/* Status badge */}
                     {(() => {
                       if (!currentResp || currentResp.answer === null || currentResp.answer === undefined || currentResp.answer === '') {
-                        return <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-gray-100 text-gray-600">Unattempted (0)</span>;
+                        return <span className="px-2 py-0.5 text-[11px] font-bold bg-gray-100 text-gray-600">Unattempted (0)</span>;
                       }
                       const isCorrect = currentReviewQ.type === 'MCQ'
                         ? parseInt(currentResp.answer, 10) === currentReviewQ.correctAnswer
                         : String(currentResp.answer).trim().toLowerCase() === String(currentReviewQ.correctAnswer).trim().toLowerCase();
                       
                       return isCorrect ? (
-                        <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-green-100 text-green-800 flex items-center gap-1">
+                        <span className="px-2.5 py-0.5 text-[11px] font-bold bg-green-100 text-green-800 flex items-center gap-1">
                           <Check size={12} /> Correct (+3)
                         </span>
                       ) : (
-                        <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-800 flex items-center gap-1">
+                        <span className="px-2.5 py-0.5 text-[11px] font-bold bg-red-100 text-red-800 flex items-center gap-1">
                           <XCircle size={12} /> Incorrect ({currentReviewQ.type === 'MCQ' ? '-1' : '0'})
                         </span>
                       );
@@ -297,18 +299,18 @@ export default function ResultModal({ candidateProfile, questions, userResponses
 
                   {/* Passage if any */}
                   {currentReviewQ.passage && (
-                    <div className="p-3 bg-gray-50 border-l-4 border-gray-400 text-xs text-gray-700 italic max-h-44 overflow-y-auto whitespace-pre-line rounded-r">
+                    <div className="p-3 bg-gray-50 border-l-4 border-gray-400 text-xs text-gray-700 italic max-h-44 overflow-y-auto whitespace-pre-line">
                       {currentReviewQ.passage}
                     </div>
                   )}
 
                   {/* Diagram in Review */}
                   {currentReviewQ.diagramUrl && (
-                    <div className="my-2.5 flex justify-center bg-gray-50 border border-gray-200 rounded-lg p-2">
+                    <div className="my-2.5 flex justify-center bg-gray-50 border border-gray-200 p-2">
                       <img 
                         src={currentReviewQ.diagramUrl} 
                         alt="Question Diagram" 
-                        className="max-h-56 object-contain rounded" 
+                        className="max-h-56 object-contain" 
                       />
                     </div>
                   )}
@@ -333,16 +335,16 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                         }
 
                         return (
-                          <div key={oIdx} className={`p-2.5 rounded-lg border flex items-start gap-2.5 ${optClass}`}>
+                          <div key={oIdx} className={`p-2.5 border flex items-start gap-2.5 ${optClass}`}>
                             <span className="font-bold text-gray-500">({String.fromCharCode(65 + oIdx)})</span>
                             <span className="flex-1">{opt}</span>
                             {isCorrect && (
-                              <span className="text-[10px] bg-green-600 text-white px-1.5 py-0.5 rounded font-bold">
+                              <span className="text-[10px] bg-green-600 text-white px-1.5 py-0.5 font-bold">
                                 Correct Answer
                               </span>
                             )}
                             {isUserChoice && !isCorrect && (
-                              <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded font-bold">
+                              <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 font-bold">
                                 Your Choice
                               </span>
                             )}
@@ -354,7 +356,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
 
                   {/* TITA Answer Display */}
                   {currentReviewQ.type === 'TITA' && (
-                    <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs space-y-1">
+                    <div className="p-3 bg-gray-50 border border-gray-200 text-xs space-y-1">
                       <div>
                         <strong>Your Input:</strong> {currentResp?.answer ? <span className="font-mono font-bold text-gray-900">{currentResp.answer}</span> : <span className="text-gray-400 italic">None</span>}
                       </div>
@@ -365,7 +367,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                   )}
 
                   {/* Explanation Box */}
-                  <div className="p-3.5 bg-blue-50/70 border border-blue-200 rounded-lg text-xs space-y-1">
+                  <div className="p-3.5 bg-blue-50/70 border border-blue-200 text-xs space-y-1">
                     <span className="font-bold text-blue-900 flex items-center gap-1.5">
                       <FileText size={14} /> Solution & Explanation:
                     </span>
@@ -400,7 +402,7 @@ export default function ResultModal({ candidateProfile, questions, userResponses
                       <button
                         key={q.id}
                         onClick={() => setSelectedReviewQIndex(idx)}
-                        className={`h-9 rounded font-bold text-xs flex items-center justify-center transition-all ${bg} ${
+                        className={`h-9 font-bold text-xs flex items-center justify-center transition-all cursor-pointer ${bg} ${
                           isCurrent ? 'ring-2 ring-blue-500 scale-105 shadow' : 'opacity-90 hover:opacity-100'
                         }`}
                       >
@@ -414,15 +416,15 @@ export default function ResultModal({ candidateProfile, questions, userResponses
               {/* Legend */}
               <div className="mt-4 pt-3 border-t border-gray-200 space-y-1.5 text-[11px] text-gray-600">
                 <div className="flex items-center gap-2">
-                  <div className="w-3.5 h-3.5 rounded bg-green-600" />
+                  <div className="w-3.5 h-3.5 bg-green-600" />
                   <span>Correct Answer</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3.5 h-3.5 rounded bg-red-600" />
+                  <div className="w-3.5 h-3.5 bg-red-600" />
                   <span>Incorrect Answer</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3.5 h-3.5 rounded bg-gray-200 border border-gray-400" />
+                  <div className="w-3.5 h-3.5 bg-gray-200 border border-gray-400" />
                   <span>Unattempted</span>
                 </div>
               </div>
@@ -431,23 +433,25 @@ export default function ResultModal({ candidateProfile, questions, userResponses
           </div>
         )}
 
-        {/* Modal Footer */}
+        {/* Modal Footer with Collaboration Attribution */}
         <div className="bg-gray-100 px-4 sm:px-6 py-3 border-t border-gray-300 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
-          <span className="text-[11px] sm:text-xs text-gray-500 text-center sm:text-left">
-            Results automatically saved to your candidate account.
-          </span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-[11px] sm:text-xs text-gray-600 text-center sm:text-left">
+            <span>Provided by <strong>Shastra CET</strong> in collaboration with <strong>College Union 2026-27</strong></span>
+            <span className="hidden sm:inline text-gray-400">•</span>
+            <span className="text-gray-500">College of Engineering Trivandrum</span>
+          </div>
           <div className="flex items-center gap-2 w-full sm:w-auto">
             {onViewProfile && (
               <button
                 onClick={onViewProfile}
-                className="flex-1 sm:flex-initial text-center px-3 sm:px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                className="flex-1 sm:flex-initial text-center px-3 sm:px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
               >
                 <span>Analytics & Profile</span>
               </button>
             )}
             <button
               onClick={onRestart}
-              className="flex-1 sm:flex-initial text-center px-3.5 sm:px-5 py-2 bg-[#1f78b4] hover:bg-[#165a88] text-white text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow cursor-pointer"
+              className="flex-1 sm:flex-initial text-center px-3.5 sm:px-5 py-2 bg-[#1f78b4] hover:bg-[#165a88] text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow cursor-pointer"
             >
               <RotateCcw size={14} />
               <span>Retake Test</span>
